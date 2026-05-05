@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.database import engine, Base
 from app.routers import auth, expenses, oauth
+from app.config import settings
 import app.models  # noqa: F401 — ensures models are registered before create_all
 
 Base.metadata.create_all(bind=engine)
@@ -14,9 +15,15 @@ app = FastAPI(
     redoc_url="/redoc",
 )
 
+allowed_origins = [
+    "http://localhost:5173",
+    "http://localhost:3000",
+    settings.frontend_url,
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://localhost:3000"],
+    allow_origins=allowed_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
