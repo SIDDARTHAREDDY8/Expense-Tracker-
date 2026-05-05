@@ -34,7 +34,7 @@ export default function Register() {
   };
 
   return (
-    <div className="min-h-screen flex">
+    <div className="min-h-screen flex flex-col lg:flex-row">
       {/* Left panel */}
       <div className="hidden lg:flex lg:w-1/2 bg-indigo-600 flex-col justify-between p-12 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
@@ -67,11 +67,11 @@ export default function Register() {
       </div>
 
       {/* Right panel */}
-      <div className="flex-1 flex items-center justify-center px-8 py-12 bg-gray-50">
+      <div className="flex-1 flex items-center justify-center px-4 sm:px-8 py-8 sm:py-12 bg-gray-50 lg:w-1/2">
         <div className="w-full max-w-sm">
-          <div className="mb-8">
-            <h2 className="text-2xl font-bold text-gray-900">Create an account</h2>
-            <p className="text-sm text-gray-500 mt-1">Get started for free, no credit card required</p>
+          <div className="mb-6 sm:mb-8">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Create an account</h2>
+            <p className="text-xs sm:text-sm text-gray-500 mt-1">Get started for free, no credit card required</p>
           </div>
 
           <div className="space-y-2.5 mb-6">

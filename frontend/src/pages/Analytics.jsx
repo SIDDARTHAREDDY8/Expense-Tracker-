@@ -32,7 +32,7 @@ function ChartTooltip({ active, payload }) {
 
 function CustomLegend({ data }) {
   return (
-    <div className="grid grid-cols-2 gap-x-6 gap-y-2 mt-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 mt-4">
       {data.map((d, i) => (
         <div key={d.category} className="flex items-center gap-2 text-xs">
           <span className="h-2.5 w-2.5 rounded-full flex-shrink-0" style={{ backgroundColor: PALETTE[i % PALETTE.length] }} />
@@ -83,13 +83,13 @@ export default function Analytics() {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-xl font-bold text-gray-900">Analytics</h1>
+      <h1 className="text-lg sm:text-xl font-bold text-gray-900">Analytics</h1>
 
       {/* Monthly trend */}
       {summary.monthly_trend.length > 0 && (
-        <div className="card p-5">
-          <h2 className="text-sm font-semibold text-gray-900 mb-5">Monthly spending</h2>
-          <ResponsiveContainer width="100%" height={220}>
+        <div className="card p-4 sm:p-5">
+          <h2 className="text-xs sm:text-sm font-semibold text-gray-900 mb-5">Monthly spending</h2>
+          <ResponsiveContainer width="100%" height={200}>
             <BarChart data={summary.monthly_trend} barSize={32} margin={{ top: 4, right: 4, left: 0, bottom: 0 }}>
               <CartesianGrid vertical={false} strokeDasharray="3 3" stroke="#f3f4f6" />
               <XAxis
@@ -112,10 +112,10 @@ export default function Analytics() {
         </div>
       )}
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {/* Donut chart — NO labels on slices, legend below */}
-        <div className="card p-5">
-          <h2 className="text-sm font-semibold text-gray-900 mb-4">By category</h2>
+        <div className="card p-4 sm:p-5">
+          <h2 className="text-xs sm:text-sm font-semibold text-gray-900 mb-4">By category</h2>
           <ResponsiveContainer width="100%" height={200}>
             <PieChart>
               <Pie
@@ -142,33 +142,33 @@ export default function Analytics() {
         </div>
 
         {/* Breakdown table */}
-        <div className="card p-5">
-          <h2 className="text-sm font-semibold text-gray-900 mb-4">Detailed breakdown</h2>
+        <div className="card p-4 sm:p-5">
+          <h2 className="text-xs sm:text-sm font-semibold text-gray-900 mb-4">Detailed breakdown</h2>
           <div className="space-y-1">
-            <div className="grid grid-cols-3 text-xs font-semibold uppercase tracking-wide text-gray-400 pb-2 border-b border-gray-100">
+            <div className="grid grid-cols-3 gap-2 text-xs font-semibold uppercase tracking-wide text-gray-400 pb-2 border-b border-gray-100">
               <span>Category</span>
               <span className="text-center">Txns</span>
               <span className="text-right">Total</span>
             </div>
             {summary.by_category.map((cat, i) => (
-              <div key={cat.category} className="grid grid-cols-3 items-center py-2.5 border-b border-gray-50 last:border-0">
-                <div className="flex items-center gap-2">
+              <div key={cat.category} className="grid grid-cols-3 gap-2 items-center py-2 sm:py-2.5 border-b border-gray-50 last:border-0">
+                <div className="flex items-center gap-2 min-w-0">
                   <span className="h-2 w-2 rounded-full flex-shrink-0" style={{ backgroundColor: PALETTE[i % PALETTE.length] }} />
-                  <span className="text-sm text-gray-700 capitalize">
+                  <span className="text-xs sm:text-sm text-gray-700 capitalize truncate">
                     {CATEGORY_ICONS[cat.category]} {cat.category}
                   </span>
                 </div>
-                <span className="text-sm text-gray-500 text-center">{cat.count}</span>
+                <span className="text-xs sm:text-sm text-gray-500 text-center">{cat.count}</span>
                 <div className="text-right">
-                  <span className="text-sm font-semibold text-gray-900">{fmt(cat.total)}</span>
-                  <span className="text-xs text-gray-400 ml-1.5">{cat.percentage}%</span>
+                  <span className="text-xs sm:text-sm font-semibold text-gray-900">{fmt(cat.total)}</span>
+                  <span className="text-xs text-gray-400 ml-1">{cat.percentage}%</span>
                 </div>
               </div>
             ))}
-            <div className="grid grid-cols-3 pt-2.5 items-center">
-              <span className="text-sm font-bold text-gray-900">Total</span>
-              <span className="text-sm font-bold text-gray-900 text-center">{summary.total_count}</span>
-              <span className="text-sm font-bold text-gray-900 text-right">{fmt(summary.total_expenses)}</span>
+            <div className="grid grid-cols-3 gap-2 pt-2 sm:pt-2.5 items-center">
+              <span className="text-xs sm:text-sm font-bold text-gray-900">Total</span>
+              <span className="text-xs sm:text-sm font-bold text-gray-900 text-center">{summary.total_count}</span>
+              <span className="text-xs sm:text-sm font-bold text-gray-900 text-right">{fmt(summary.total_expenses)}</span>
             </div>
           </div>
         </div>

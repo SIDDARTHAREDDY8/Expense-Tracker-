@@ -66,9 +66,9 @@ export default function Expenses() {
   return (
     <div className="space-y-5">
       {/* Header */}
-      <div className="flex items-center justify-between">
-        <h1 className="text-xl font-bold text-gray-900">Expenses</h1>
-        <Link to="/add" className="btn-primary">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-0">
+        <h1 className="text-lg sm:text-xl font-bold text-gray-900">Expenses</h1>
+        <Link to="/add" className="btn-primary w-full sm:w-auto justify-center">
           <Plus size={15} />
           Add expense
         </Link>
@@ -106,7 +106,7 @@ export default function Expenses() {
         </div>
 
         {showFilters && (
-          <div className="grid grid-cols-3 gap-3 pt-1">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
             <div>
               <label className="label">Category</label>
               <select

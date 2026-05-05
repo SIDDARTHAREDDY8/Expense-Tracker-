@@ -82,22 +82,22 @@ export default function Dashboard() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex items-start justify-between">
-        <div>
-          <h1 className="text-xl font-bold text-gray-900">
+      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 sm:gap-0">
+        <div className="min-w-0">
+          <h1 className="text-lg sm:text-xl font-bold text-gray-900">
             Good {new Date().getHours() < 12 ? "morning" : new Date().getHours() < 17 ? "afternoon" : "evening"},{" "}
             {user?.full_name?.split(" ")[0] || user?.username}
           </h1>
-          <p className="text-sm text-gray-400 mt-0.5">{format(new Date(), "EEEE, MMMM d, yyyy")}</p>
+          <p className="text-xs sm:text-sm text-gray-400 mt-0.5">{format(new Date(), "EEEE, MMMM d, yyyy")}</p>
         </div>
-        <Link to="/add" className="btn-primary">
+        <Link to="/add" className="btn-primary w-full sm:w-auto justify-center">
           <Plus size={15} />
           Add expense
         </Link>
       </div>
 
       {/* Stat cards — 3 cards, removed "top category" */}
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         <StatCard
           label="Total spent"
           value={fmt(summary?.total_expenses)}
@@ -122,9 +122,9 @@ export default function Dashboard() {
         />
       </div>
 
-      <div className="grid grid-cols-5 gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-4">
         {/* Category breakdown */}
-        <div className="card col-span-3 p-5">
+        <div className="card lg:col-span-3 p-5">
           <div className="flex items-center justify-between mb-5">
             <h2 className="text-sm font-semibold text-gray-900">Spending by category</h2>
             <Link to="/analytics" className="flex items-center gap-1 text-xs font-medium text-indigo-600 hover:text-indigo-700">
@@ -161,7 +161,7 @@ export default function Dashboard() {
         </div>
 
         {/* Recent transactions */}
-        <div className="card col-span-2 p-5">
+        <div className="card lg:col-span-2 p-5">
           <div className="flex items-center justify-between mb-5">
             <h2 className="text-sm font-semibold text-gray-900">Recent</h2>
             <Link to="/expenses" className="flex items-center gap-1 text-xs font-medium text-indigo-600 hover:text-indigo-700">
