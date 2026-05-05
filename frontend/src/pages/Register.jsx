@@ -48,7 +48,7 @@ export default function Register() {
           </svg>
         </div>
         <div className="relative flex items-center gap-2.5">
-          <img src="/logo.png" alt="VYBE Logo" className="h-8 w-8 object-contain rounded-lg bg-white/20 p-1" />
+          <img src="/logo.png" alt="VYBE Logo" className="h-10 w-10 object-contain" />
           <span className="text-white font-bold text-sm">VYBE</span>
         </div>
         <div className="relative space-y-4">

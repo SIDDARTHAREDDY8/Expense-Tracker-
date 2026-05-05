@@ -45,7 +45,7 @@ export default function Layout({ children }) {
       }`}>
         {/* Logo */}
         <div className="flex h-16 items-center gap-2.5 px-5 border-b border-gray-100">
-          <img src="/logo.png" alt="VYBE Logo" className="h-8 w-8 object-contain" />
+          <img src="/logo.png" alt="VYBE Logo" className="h-9 w-9 object-contain" />
           <span className="text-sm font-bold text-gray-900 tracking-tight">VYBE</span>
         </div>
 
@@ -113,7 +113,7 @@ export default function Layout({ children }) {
         {/* Mobile header */}
         <div className="sticky top-0 z-10 bg-white border-b border-gray-100 px-4 py-3 flex items-center justify-between lg:hidden">
           <div className="flex items-center gap-2">
-            <img src="/logo.png" alt="VYBE Logo" className="h-8 w-8 object-contain" />
+            <img src="/logo.png" alt="VYBE Logo" className="h-9 w-9 object-contain" />
             <span className="text-sm font-bold text-gray-900">VYBE</span>
           </div>
           <button
